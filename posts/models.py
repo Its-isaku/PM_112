@@ -1,6 +1,7 @@
 
 #? Library imports
 from django.db import models
+from django.urls import reverse
 
 #? Class for the Post model
 class Post(models.Model):
@@ -12,4 +13,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title  #* Returns the title of the post when the object is printed
     
+    def get_absolute_url(self):
+        return reverse("detail", args=[self.id])
     
